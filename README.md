@@ -25,6 +25,7 @@ https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Configuratio
 ## 1. 拷贝maven仓库至本地环境（默认仓库位置/自定义位置）
 ## 2. 准备maven环境
 - 本机安装maven环境
+
 ```
 配置maven中仓库的位置（默认/自定义配置）
 ```
@@ -264,26 +265,29 @@ Swagger UI：用于查看REST API文档。API在线文档生成和测试的工�
 注：Spring Cloud Config Server不能集成Swagger，否则swagger ui的资源加载不了，只能集成在客户端。
 ```
 
+
 ## 10.7 Web开发——Spring Boot对静态资源的处理
-### 10.7.1 使用SpringBoot；
+### 10.7.1 使用SpringBoot
 
-**1）、创建SpringBoot应用，选中我们需要的模块；**
+```
+1）、创建SpringBoot应用，选中我们需要的模块；
 
-**2）、SpringBoot已经默认将这些场景配置好了，只需要在配置文件中指定少量配置就可以运行起来**
+2）、SpringBoot已经默认将这些场景配置好了，只需要在配置文件中指定少量配置就可以运行起来
 
-**3）、自己编写业务代码；**
-
+3）、自己编写业务代码；
+```
 
 
 **自动配置原理？**
 
 这个场景SpringBoot帮我们配置了什么？能不能修改？能修改哪些配置？能不能扩展？xxx
 
+
 ```
 xxxxAutoConfiguration：帮我们给容器中自动配置组件；
 xxxxProperties:配置类来封装配置文件的内容；
-__
 ```
+
 
 ### 10.7.2 SpringBoot对静态资源的映射规则；
 ==1）、所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源；==
@@ -294,6 +298,7 @@ http://www.webjars.org/
 
 localhost:8080/webjars/jquery/3.3.1/jquery.js
 
+
 ```
 <!--引入jquery-webjar-->在访问的时候只需要写webjars下面资源的名称即可
 		<dependency>
@@ -303,7 +308,9 @@ localhost:8080/webjars/jquery/3.3.1/jquery.js
 		</dependency>
 ```
 
-==2）、"/**" 访问当前项目的任何资源，都去（静态资源的文件夹）找映射==
+
+==2）、"/**" 访问当前项目的任何资源，都去（静态资源的文件夹）找映射
+
 
 ```
 "classpath:/META-INF/resources/", 
@@ -315,11 +322,12 @@ localhost:8080/webjars/jquery/3.3.1/jquery.js
 
 localhost:8080/abc ===  去静态资源文件夹里面找abc
 
-==3）、欢迎页； 静态资源文件夹下的所有index.html页面；被"/**"映射；==
+==3）、欢迎页； 静态资源文件夹下的所有index.html页面；被"/**"映射；
 
 	localhost:8080/   找index页面
 
-==4）、所有的 **/favicon.ico  都是在静态资源文件下找；==
+==4）、所有的 **/favicon.ico  都是在静态资源文件下找；
+
 
 ### 10.7.3 自定义静态资源路径
 配置静态文件夹路径，如配成类路径下的hello和gis文件夹**：spring.resources.static-locations=classpath:/hello/,classpath:/gis
