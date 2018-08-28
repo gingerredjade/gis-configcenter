@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>GIS容器云平台Gstack访问</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-size:16px;
+            font-weight:bold;
+            background: url("mapshow.png") -25px 0px no-repeat rgb(0,0,0);
+            data-stellar-background-ratio:"0.5";
+            font-family: "Open Sans", Arial, sans-serif;
+            line-height: 1.3;
+            font-weight: 300;
+        }
+        .gstack-access-h2 {
+            color: #fff;
+        }
+        .gstack-access-use {
+            color: #828282;
+            margin: 0px 20px 20px 50px;
+        }
+        .gstack-access-use .gstack-access-use-prepare {
+            padding: 10px 50px 0px 50px;
+        }
+        .gstack-access-use .gstack-access-use-prepare p {
+            font-size: 16px;
+            padding: 10px 50px 0px 60px;
+        }
+        .gstack-access-use .gstack-access-use-address {
+            color: #828282;
+            font-size: 16px;
+        }
+        .gstack-access-use .gstack-access-use-address p {
+            height: 30px;
+            line-height: 30px;
+        }
+        .gstack-access-use .gstack-access-use-address p > span {
+            background: #F73859;
+            color: #ffffff;
+            height: 30px;
+            display: inline-block;
+            border-radius: 4px;
+            width:200px;
+            text-align: center;
+            padding: 0px 30px;
+            margin: 5px 10px 5px 0px;
+        }
+        .gstack-access-use .gstack-access-use-address p a {
+            text-decoration: none;
+            cursor: auto;
+            outline: none;
+            color: #828282;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2 class="gstack-access-h2">GStack访问</h2>
+    <div class="gstack-access-use">
+        <div class="gstack-access-use-address">
+            <p>
+                <span>Harbor仓库</span>
+                <a target="_blank" href="https://reg.gisnci.com">https://reg.gisnci.com</a>
+            </p>
+            <p>
+                <span>Kubernetes Dashboard</span>
+                <a target="_blank" href="http://www.gstack.com/">http://www.gstack.com/</a>
+            </p>
+            <p>
+                <span>地图</span>
+                <a target="_blank" href="http://map.gstack.com/mswss/demo/index/">http://map.gstack.com/mswss/demo/index/</a>
+                &nbsp;&nbsp;
+                <a target="_blank" href="http://map.gstack.com/mswss/iService/index/">http://map.gstack.com/mswss/iService/index/</a>
+            </p>
+            <p>
+                <span>地图</span>
+                <a target="_blank" href="http://tu.gstack.com/mswss/demo/index/">http://tu.gstack.com/mswss/demo/index/</a>
+            </p>
+            <p>
+                <span>门户</span>
+                <a target="_blank" href="http://portal.gstack.com/gisPortal/frontend/mapOnline.html">http://portal.gstack.com/gisPortal/frontend/mapOnline.html</a>
+            </p>
+        </div>
+        <div class="gstack-access-use-prepare">
+            <strong>访问前先配置如下hosts</strong><br />
+            <label>--Harbor私有仓库</label>
+            <p>
+                192.168.56.206 reg.gisnci.com
+            </p>
+            <label>--ingress for Kubernetes</label>
+            <p>
+                192.168.56.208 www.gstack.com <br />
+                192.168.56.212 www.gstack.com<br />
+                192.168.56.208 portal.gstack.com<br />
+                192.168.56.212 portal.gstack.com<br />
+                192.168.56.208 map.gstack.com<br />
+                192.168.56.212 map.gstack.com<br />
+                192.168.56.208 tu.gstack.com<br />
+                192.168.56.212 tu.gstack.com<br />
+                192.168.56.208 grafana.gstack.com<br />
+                192.168.56.212 grafana.gstack.com<br />
+            </p>
+
+        </div>
+
+    </div>
+</body>
+</html>

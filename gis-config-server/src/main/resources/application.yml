@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: gis-config-server  # 配置服务器应用名称
+  cloud:
+    config:
+      server:
+#        git:
+#          uri: https://gitee.com/SpringCloud_Sell/config-repo
+#          username: jianghongyu
+#          password: jianghongyu
+#          searchPaths: config-repo
+#          basedir: /Users/admin/code/myProjects/java/imooc/SpringCloud_Sell/config/basedir
+#          force-pull: true
+        native:
+          search-locations: classpath:/config-repo/
+  profiles:
+    active: native
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  management:
+    security:
+      enabled: false
+  endpoints:
+    web:
+      expose: "*"
+server:
+  port: 7070
+
+
+
