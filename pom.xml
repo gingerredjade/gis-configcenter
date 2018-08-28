@@ -24,6 +24,14 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<modules>
+		<module>gis-eureka-server</module>
+		<module>gis-config-server</module>
+		<module>gis-config-server-ui</module>
+		<module>gis-config-client</module>
+		<module>microservice-config-client-refresh</module>
+	</modules>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
