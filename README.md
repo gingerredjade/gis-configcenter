@@ -1,4 +1,4 @@
-# 框架搭建环境
+# 一、框架搭建环境
 ````
 - 编译器：IDEA 2017.2.5
 - Maven：3.3.9
@@ -6,44 +6,50 @@
 - 系统：Win 10
 ````
 
-# 开发框架
-- Spring Boot 2.0（2.0.4）
+# 二、开发框架
+Spring Boot 2.0（2.0.4）
+
 ```
 1. 新增特性
 2. 代码重构
 3. 配置变更
 ```
+
 ```
 http://spring.io
 https://github.com/spring-projects/spring-boot/wiki可查看发布日志
 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Configuration-Changelog查看配置的改变
 ```
 
-# maven使用办法
-1. 拷贝maven仓库至本地环境（默认仓库位置/自定义位置）
-2. 准备maven环境
- - 2.1 本机安装maven环境
-    - 2.2.1 配置maven中仓库的位置（默认/自定义配置）
- 
- - 2.2 本机可以不用安装maven环境(Linux中方法同)
-    - 2.2.1 将maven压缩包放到某个目录下"E:/apache-maven-3.5.2-bin.zip"
-    - 2.2.2 编辑项目中的.mvn/wrapper/maven-wrapper.properties
-    - 2.2.3 distributionUrl设为第二步设置的目录"E:/apache-maven-3.5.2-bin.zip"
+# 三、maven使用办法
+## 1. 拷贝maven仓库至本地环境（默认仓库位置/自定义位置）
+## 2. 准备maven环境
+- 本机安装maven环境
+```
+配置maven中仓库的位置（默认/自定义配置）
+```
+- 本机可以不用安装maven环境(Linux中方法同)
 
-# 配置中心gis-configcenter组件结构
+```
+(1)将maven压缩包放到某个目录下"E:/apache-maven-3.5.2-bin.zip"
+(2)编辑项目中的.mvn/wrapper/maven-wrapper.properties
+(3)distributionUrl设为第二步设置的目录"E:/apache-maven-3.5.2-bin.zip"
+```
+
+# 四、配置中心gis-configcenter组件结构
 - gis-eureka-server
 - gis-config-server、gis-config-server-ui
 - gis-config-client
 - microservice-config-client-refresh(仅测试消息总线用)
 
-# 配置中心服务组件启动顺序
+## 1. 配置中心服务组件启动顺序
 项目源码使用模块编程，client端注册到了eureka服务端，所以启动项目应该也要启动eureka的服务端。
 然后再启动config服务端，最后启动config-client端，启动config-client要使用profile方法启动。
 1. gis-eureka-server
 2. gis-config-server、gis-config-server-ui
 3. gis-config-client
 
-# 端口
+## 2. 端口
 eureka-server:8761
 config-server:7070
 config-server-ui:7071
@@ -51,46 +57,48 @@ config-client:8080
 
 测试：
 1. http://localhost:8761
-2. 查看服务都安配置信息
-```
-http://localhost:7070/mswss-146/dev
-http://localhost:7070/mswss-146-dev.properties
-http://localhost:7070/mswss-146-dev.json
-http://localhost:7070/mswss-146-dev.yml
+2. 查看服务的配置信息
 
-http://localhost:7070/mswss-157/prod
-http://localhost:7070/mswss-157-prod.properties
-http://localhost:7070/mswss-157-prod.json
-http://localhost:7070/mswss-157-prod.yml
 ```
+- http://localhost:7070/mswss-146/dev
+- http://localhost:7070/mswss-146-dev.properties
+- http://localhost:7070/mswss-146-dev.json
+- http://localhost:7070/mswss-146-dev.yml
 
+- http://localhost:7070/mswss-157/prod
+- http://localhost:7070/mswss-157-prod.properties
+- http://localhost:7070/mswss-157-prod.json
+- http://localhost:7070/mswss-157-prod.yml
+```
 
 3. http://localhost:8080/testhello/redis_server_port
 4. 修改配置-->/bus-refresh
 5. http://localhost:8080/testhello/redis_server_port已获取最新配置信息
 
 
-# build - 打包
+# 五、build - 打包
 ## 1. IDEA界面
 ## 2. 命令行
 ```
-2.1 进入项目
-2.2 mvn clean package或mvn clean install
+1 进入项目
+2 mvn clean package或mvn clean install
 ```
 
-# run - 启动、停止
-## 启动
+# 六、run - 启动、停止
+## 1. 启动
 将jar包上传到指定服务器上，采用 java -jar *.jar 的方式  
-linux下可以通过nohup或者supervisor(推荐）进行启动
-启动命令中建议加入spring.profiles.active参数，指定使用生产环境的配置，该配置可以application-prod.properties中指定
+
+linux下可以通过nohup或者supervisor(推荐）进行启动，启动命令中建议加入spring.profiles.active参数，指定使用生产环境的配置，该配置可以application-prod.properties中指定
+
 使用prod模式时，日志文件会自动输出到当前目录的logs文件中，可通过```tail -100f logs/gis-frame.log```进行查看
+
 - nohup java -jar target/xxxx.jar > /dev/null 2>&1 &
 - nohup java -jar -Dspring.profiles.active=prod target/xxxx.jar > console.file 2>&1 &
-## 停止
+## 2. 停止
 - ps -ef|grep eureka
 - kill进程以停止服务
 
-# 配置文件约定
+# 七、配置文件约定
 配置文件使用本地存储模式，且独立于配置中心服务端，以支持配置中心服务端能自动读取本地仓库最新的配置信息供客户端获取使用。
 
 使用模式
@@ -120,9 +128,9 @@ linux下可以通过nohup或者supervisor(推荐）进行启动
 
 
 当Config Server启动后，如果配置发生了修改，微服务也应该实现配置的刷新。
-# 动态刷新Config Client配置
-## rabbitmq安装
-最方便的是运行rabbitmq镜像实例。
+# 八、动态刷新Config Client配置
+## 1. rabbitmq安装
+最方便的是运行rabbitmq镜像实例。参照WebGIS Blog。
 ```
 0. docker pull rabbitmq:3.7.7-management
 1. 准备镜像:rabbitmq:3.7.7-management.tar
@@ -134,7 +142,7 @@ linux下可以通过nohup或者supervisor(推荐）进行启动
 3.访问http://192.168.56.213:15672
 ```
 
-## 单点手动动态刷新Config Client配置（/actuator/refresh）
+## 2. 单点手动动态刷新Config Client配置（/actuator/refresh）
 给客户端发送执行刷新的命令：
 ```
 - 使用Postman发送POST请求：http://localhost:8080/actuator/refresh
@@ -143,7 +151,7 @@ linux下可以通过nohup或者supervisor(推荐）进行启动
 
 刷新后客户端再获取就是更新后的数据了。
 
-## Config Client配置信息实时刷新-Spring Cloud Bus（/actuator/bus-refresh）
+## 3. Config Client配置信息实时刷新-Spring Cloud Bus（/actuator/bus-refresh）
 使用rabbitmq消息中间件产品来增强刷新机制，解决多台配置客户端自动刷新配置问题。
 
 Spring Cloud Bus做配置更新步骤如下：
@@ -167,15 +175,7 @@ guest guest账户访问rabbit：http://localhost:15672/
 ```
 
 
-# 健康状态检测
-
-给客户端发送执行健康状态检测的命令：
-```
-- 使用Postman发送GET请求：http://localhost:8080/actuator/health
-- 使用终端发送GET请求：curl -X GET http://localhost:8080/actuator/health
-```
-
-# 测试
+## 4. 测试
 ```
 http://192.168.55.111:8761/ 查看注册中心
 http://192.168.55.111:7070/mswss-146/dev    查看mswss-146-dev.properties配置
@@ -188,12 +188,21 @@ http://192.168.55.111:8081/redis_server_port    获取客户端2的更新的某�
 ```
 
 
-# 知识点记录
-## Config Client的Controller编写规则
+# 九、健康状态检测
+
+给客户端发送执行健康状态检测的命令：
+```
+- 使用Postman发送GET请求：http://localhost:8080/actuator/health
+- 使用终端发送GET请求：curl -X GET http://localhost:8080/actuator/health
+```
+
+
+# 十、知识点记录
+## 10.1 Config Client的Controller编写规则
 每个Controller类和其内部的方法都要编写详细的API说明，且要做到配置和逻辑分离。interface+implements，注解和注释写在interface中。
 可参考gis-config-client.
 
-## Spring Cloud Config简介
+## 10.2 Spring Cloud Config简介
 - Config Server可横向扩展、集中式的配置服务器，集中管理应用程序各个环境下的配置；
 - Config Client是Config Server的客户端，用于操作存储在Config Server中的配置属性；
 
@@ -205,7 +214,7 @@ Spring Cloud已经给我们提供了客户端主动获取新的配置信息的�
 config server暴露Http API接口，config client通过调用config server的Http API接口来读取配置文件
 
 
-## 注册中心
+## 10.3 注册中心
 ```
 分布式系统中，服务注册中心是最重要的基础部分
 示例：注册中心、A、微服务B：
@@ -224,22 +233,22 @@ A是如何拿到B的信息呢？两种方法：
     - Kubernetes（集群中的每个节点都运行一个代理来实现服务发现的功能）
 ```
 
-## 微服务的特点：异构
+## 10.4 微服务的特点：异构
 - 不同语言
 - 不同类型的数据库
 
-## 目前流行的通信方式
+## 10.5 目前流行的通信方式
 - REST（Spring Cloud的服务调用方式）
 - RPC
 - Node.js的eureka-js-client
 Eureka、支持将非Java语言实现的服务纳入到自己的服务治理体系中，只需要其他语言实现eureka的客户端程序。
 
-## 使用Swagger自动生成REST API文档
-### 5.1. 接口文档
+## 10.6 使用Swagger自动生成REST API文档
+### 10.6.1 接口文档
 遇到如下场景需要提供接口文档
 - 前后端分离
 - 第三方合作
-### 5.2. 简介
+### 10.6.2 简介
 ```
 https://swagger.io/
 Swagger是一个规范和完整的框架，用于生成、描述、调用和可视化RESTful风格的Web服务。http://swagger.io/
@@ -255,8 +264,8 @@ Swagger UI：用于查看REST API文档。API在线文档生成和测试的工�
 注：Spring Cloud Config Server不能集成Swagger，否则swagger ui的资源加载不了，只能集成在客户端。
 ```
 
-# Web开发——Spring Boot对静态资源的处理
-使用SpringBoot；
+## 10.7 Web开发——Spring Boot对静态资源的处理
+### 10.7.1 使用SpringBoot；
 
 **1）、创建SpringBoot应用，选中我们需要的模块；**
 
@@ -276,10 +285,10 @@ xxxxProperties:配置类来封装配置文件的内容；
 __
 ```
 
-## 2、SpringBoot对静态资源的映射规则；
+### 10.7.2 SpringBoot对静态资源的映射规则；
 ==1）、所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源；==
 
-​	webjars：以jar包的方式引入静态资源；
+	webjars：以jar包的方式引入静态资源；
 
 http://www.webjars.org/
 
@@ -308,9 +317,9 @@ localhost:8080/abc ===  去静态资源文件夹里面找abc
 
 ==3）、欢迎页； 静态资源文件夹下的所有index.html页面；被"/**"映射；==
 
-​	localhost:8080/   找index页面
+	localhost:8080/   找index页面
 
 ==4）、所有的 **/favicon.ico  都是在静态资源文件下找；==
 
-## 3、自定义静态资源路径
+### 10.7.3 自定义静态资源路径
 配置静态文件夹路径，如配成类路径下的hello和gis文件夹**：spring.resources.static-locations=classpath:/hello/,classpath:/gis
