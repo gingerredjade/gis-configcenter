@@ -249,17 +249,19 @@ Eureka、支持将非Java语言实现的服务纳入到自己的服务治理体�
 遇到如下场景需要提供接口文档
 - 前后端分离
 - 第三方合作
+
 ### 10.6.2 简介
+
 ```
 https://swagger.io/
 Swagger是一个规范和完整的框架，用于生成、描述、调用和可视化RESTful风格的Web服务。http://swagger.io/
 springfox的前身是swagger-springmvc，是一个开源的API doc框架，可以将我们的Controller的方法以文档的形式展现，基于Swagger。
 http://springfox.github.io/springfox/
-```
+
 Swagger Editor：用于编辑REST API文档.支持编辑Swagger API规范yaml文档描述API，并可实时预览API
 Swagger Codegen：用于生成REST API文档.一个模板驱动引擎，通过分析用户Swagger资源声明以各种语言生成客户端SDK或Server端桩代码，从而让开发团队能够更好的关注API的实现和调用，提高开发效率
 Swagger UI：用于查看REST API文档。API在线文档生成和测试的工具，可显示API描述，并且支持调用API进行测试及验证
-```
+
 服务端启动后，能通过Swagger UI在浏览器中查看已发布的REST API文档。
 
 注：Spring Cloud Config Server不能集成Swagger，否则swagger ui的资源加载不了，只能集成在客户端。
