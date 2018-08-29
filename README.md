@@ -294,7 +294,7 @@ Swagger UI：用于查看REST API文档。API在线文档生成和测试的工�
 
 **自动配置原理？**
 
-这个场景SpringBoot帮我们配置了什么？能不能修改？能修改哪些配置？能不能扩展？xxx
+这个场景SpringBoot帮我们配置了什么？能不能修改？能修改哪些配置？能不能扩展？
 
 
 ```
@@ -304,7 +304,7 @@ xxxxProperties:配置类来封装配置文件的内容；
 
 
 ### 10.7.2 SpringBoot对静态资源的映射规则；
-==1）、所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源；==
+==1）、所有 /webjars/** ，都去 classpath:/META-INF/resources/webjars/ 找资源；
 
 	webjars：以jar包的方式引入静态资源；
 
