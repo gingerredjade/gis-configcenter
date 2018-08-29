@@ -15,38 +15,22 @@ public class GisConfigClientApplicationTests {
 	/**
 	 * 这个配置文件不是在应用本身而是在云端的
 	 */
-	@Value("${auther}")
-	private String auther;
-
-	@Value("${version}")
-	private String version;
-
-	@Value("${zk.ip}")
-	private String zk_ip;
-
-	@Value("${zk.port}")
-	private String zk_port;
-
 	@Value("${redis.server.ip}")
 	private String redis_server_ip;
 
 	@Value("${redis.server.port}")
 	private String redis_server_port;
 
-	@Value("${redis.server.pass}")
-	private String redis_server_pass;
+	@Value("${redis.server.requirepass}")
+	private String redis_server_requirepass;
 
 	@Test
 	public void contextLoads() {
 		// 写断言判断督导的内容是否是"waylau.com"
 		//assertEquals("waylau.com", auther);
-		System.out.println(auther);
-		System.out.println(version);
-		System.out.println(zk_ip);
-		System.out.println(zk_port);
 		System.out.println(redis_server_ip);
 		System.out.println(redis_server_port);
-		System.out.println(redis_server_pass);
+		System.out.println(redis_server_requirepass);
 	}
 
 }
