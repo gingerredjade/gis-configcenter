@@ -11,7 +11,7 @@
 2. 页面文件放在src/main/resources/resources目录下；
 ```
 
-## 4. 视图模版引擎static为
+## 4. 视图模版引擎
 一般把页面放在templates中，静态资源放在static中。页面引用这些静态资源时,注意相对路径，因为//*，所以不需要引用到static那级。
 
 
