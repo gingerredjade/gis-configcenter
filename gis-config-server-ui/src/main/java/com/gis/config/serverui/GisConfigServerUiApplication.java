@@ -8,11 +8,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * 应用启动入口类
- * 	设置扫描了所有包
- * 	支持定时任务
- *
- * 	@EnableDiscoveryClient表明它是服务注册组件的客户端（对ZK、Eureka适用）
- * 	@EnableEurekaClient只对Eureka适用
  *
  * @since 1.0.0 2018年08月18日
  * @author <a href="https://gisnci.com">Hongyu Jiang</a>
