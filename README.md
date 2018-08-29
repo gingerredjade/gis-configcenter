@@ -95,6 +95,7 @@ linux下可以通过nohup或者supervisor(推荐）进行启动，启动命令�
 
 - nohup java -jar target/xxxx.jar > /dev/null 2>&1 &
 - nohup java -jar -Dspring.profiles.active=prod target/xxxx.jar > console.file 2>&1 &
+
 ## 2. 停止
 - ps -ef|grep eureka
 - kill进程以停止服务
