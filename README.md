@@ -51,10 +51,10 @@ https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Configuratio
 3. gis-config-client
 
 ## 2. 端口
-eureka-server:8761
-config-server:7070
-config-server-ui:7071
-config-client:8080
+1. eureka-server:8761
+2. config-server:7070
+3. config-server-ui:7071
+4. config-client:8080
 
 测试：
 1. http://localhost:8761
