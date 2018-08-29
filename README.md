@@ -105,28 +105,39 @@ linux下可以通过nohup或者supervisor(推荐）进行启动，启动命令�
 
 使用模式
 1. 镜像方式（一般使用该方式）
-- 1.1 准备配置文件数据
-- 1.2 固定配置文件本地仓库路径为/var/config-center/config-repo
-- 1.3 配置中心服务端application.properties文件中spring.cloud.config.server.native.search-locations属性指定该路径
-- 1.4 镜像制作
-    * 1.4.1 创建配置配置文件本地仓库路径
-    - 1.4.2 添加配置文件到本地仓库
-    - 1.4.3 添加配置中心服务端
-    * 1.4.4 启动配置中心服务端
-- 1.5 交付配置中心服务端Docker镜像
+
+```
+- 1 准备配置文件数据
+- 2 固定配置文件本地仓库路径为/var/config-center/config-repo
+- 3 配置中心服务端application.properties文件中spring.cloud.config.server.native.search-locations属性指定该路径
+- 4 镜像制作
+    * 4.1 创建配置配置文件本地仓库路径
+    - 4.2 添加配置文件到本地仓库
+    - 4.3 添加配置中心服务端
+    * 4.4 启动配置中心服务端
+- 5 交付配置中心服务端Docker镜像
+```
+
 
 2. Linux环境
-- 2.1 准备配置文件数据
-- 2.2 固定配置文件本地仓库路径为/var/config-center/config-repo
-- 2.3 配置中心服务端application.properties文件中spring.cloud.config.server.native.search-locations属性指定该路径
-- 2.4 自行检测、创建本地仓库，并上传配置文件信息
-- 2.5 启动配置中心服务端
+
+```
+- 1 准备配置文件数据
+- 2 固定配置文件本地仓库路径为/var/config-center/config-repo
+- 3 配置中心服务端application.properties文件中spring.cloud.config.server.native.search-locations属性指定该路径
+- 4 自行检测、创建本地仓库，并上传配置文件信息
+- 5 启动配置中心服务端
+```
+
 
 3. Windows环境
-- 3.1 准备配置文件数据
-- 3.2 自定义配置文件本地仓库路径，并上传配置文件信息
-- 3.3 配置中心服务端application.properties文件中spring.cloud.config.server.native.search-locations属性指定该路径
-- 2.5 启动配置中心服务端
+
+```
+- 1 准备配置文件数据
+- 2 自定义配置文件本地仓库路径，并上传配置文件信息
+- 3 配置中心服务端application.properties文件中spring.cloud.config.server.native.search-locations属性指定该路径
+- 4 启动配置中心服务端
+```
 
 
 当Config Server启动后，如果配置发生了修改，微服务也应该实现配置的刷新。
