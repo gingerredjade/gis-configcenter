@@ -1,4 +1,4 @@
-# Spring Cloud Config Client高可用
+# 一、Spring Cloud Config Client高可用
 - 启动多个实例即可
 
 ````
@@ -12,7 +12,7 @@
 - 重启应用服务
 - 自动负载均衡访问多个客户端实例
 
-# 组件功能支持说明
+# 二、组件功能支持说明
 ## 1. 处理http/json 请求
 ## 2. 日志记录 
 - Spring Boot自带日志，直接在Spring Boot中添加日志
