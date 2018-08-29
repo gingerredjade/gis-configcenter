@@ -1,11 +1,13 @@
 # Spring Cloud Config Client高可用
 - 启动多个实例即可
+
 ````
 1. Edit Configurations
 2. 添加相同的Spring Boot启动类
 3. 为每个启动类设置不同的端口
    -Dserver.port=9001
 ````
+
 - 启动多个实例
 - 重启应用服务
 - 自动负载均衡访问多个客户端实例
@@ -15,10 +17,12 @@
 ## 2. 日志记录 
 - Spring Boot自带日志，直接在Spring Boot中添加日志
 - 生成日志文件，添加Spring Boot默认支持的logback作为标准日志输出
+
 ```
 - 日志按天记录，自动生成当天的记录文件 
 - 日志分级存储（info,error）
 ```
+
 ## 3. 定时任务
 - Spring Boot定时任务的启动和配置要简单很多，只需要增加一个注解EnableScheduling即可
 
