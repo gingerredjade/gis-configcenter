@@ -25,9 +25,11 @@ public interface UserContIntf {
     @ResponseBody
     public User getUser();
 
-    @ApiOperation(value = "选择添加User",notes = "利用User实体进行参数选择性的插入<br />")
-    @ApiImplicitParam(name = "user",value = "用户实体User",required = true,dataType = "User")
-    @RequestMapping(value = "/insertUser",method = RequestMethod.PUT)
+    @ApiOperation(value = "选择添加User", notes = "利用User实体进行参数选择性的插入<br />")
+    @ApiImplicitParam(name = "user", value = "用户实体User", required = true, dataType = "User")
+    @RequestMapping(value = "/insertUser", method = RequestMethod.PUT)
     @ResponseBody
-    public User putUser(@RequestBody User user);
+    public default User putUser(@RequestBody User user) {
+        return null;
+    }
 }
