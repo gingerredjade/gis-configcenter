@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 1.0.0 2018年08月18日
  * @author <a href="https://gisnci.com">Hongyu Jiang</a>
  */
-//@Controller
+@Controller
 public class ThymeleafTestController {
 
     /**
