@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>服务配置中心</title>
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap.css}" rel="stylesheet">
+    <link href="asserts/css/ConfigCenter.css" th:href="@{/webjars/ConfigCenter.css}" rel="stylesheet">
+</head>
+<body>
+    <header class="setcenter"><h1 class="Cshadow Cfontshadow">服务配置中心</h1></header>
+    <div  id="configlist" class="left" style="">
+        <ul class="nav listl"  id = "configlst" style="display: list-item;color: #a5a5a5;padding-right: 10px;padding-left:30px;border-right: 1px white solid">
+            <p style="text-decoration: none;color: white;cursor: none">配置文件名称：</p>
+            <!--<li>mswss-146-dev.propertiesmswss-146-dev.propertiesmswss-146-dev.properties</li>-->
+        </ul>
+    </div>
+    <div id="configinfo" class="maincontent">
+        <!--<table id="configinfotab" class="table table-bordered table-condensed" style="color: white">-->
+            <!--<caption style="text-align: left;font-size: 20px;margin-left: 20px"><span id = "configname" style="color: white">配置文件123456</span><button class="btn btncolor btnrm" style="position: relative;float: right;margin-bottom:10px;display: none">保存</button></caption>-->
+            <!--<tr><th style="width: 350px">配置项</th><th style="">值</th></tr>-->
+            <!--<tr class="teamlst">-->
+                <!--<td>hbase.hbase_zookeeper_quorum</td>-->
+                <!--<td><div class="input-group input-group-sm" style="width: 80%"><input type="text" value="我地图" class="form-control Cinput" autocomplete="off"></div></td>-->
+            <!--</tr>-->
+        <!--</table>-->
+        <!--<div id="pager" style="position: fixed;right: 50px"></div>-->
+    </div>
+    <footer class="Cfoot">CETC-15&ensp;&ensp;&ensp;&ensp;基础三部&ensp;&ensp;&ensp;&ensp;&ensp;联系电话：12345</footer>
+    <script src ="asserts/js/jquery-1.10.2.min.js" th:href="@{/webjars/js/jquery-1.10.2.min.js}" ></script>
+    <script src ="asserts/js/bootstrap.min.js" th:href="@{/webjars/js/bootstrap.min.js}" ></script>
+    <script src ="asserts/js/jquery.bootpag.js" th:href="@{/webjars/js/jquery.bootpag.js}" ></script>
+
+    <script>
+        var PATROLSIZE = 10;
+        var urlhead = 'http://localhost:7070';
+        $(document).ready(function(){
+            getConfigName();
+        });
+        var workPage = function (obj,total,page,callback) {
+            $(obj).bootpag({
+                paginationClass: 'pagination',
+                total: total,
+                page: page,
+                maxVisible: 10,
+                next: '下一页',
+                prev: '上一页'
+            }).on("page", function(event, num){
+                callback(num);
+            });
+        }
+        var showPatrolList = function (page) {
+            $('.teamlst').hide();
+            var  startRow =(page - 1)* PATROLSIZE + 1;
+            var  endRow = page * PATROLSIZE;
+            for(var i=startRow;i<=endRow;i++){
+                $('.teamlst').eq(i-1).show();
+            }
+        };
+        var getConfigName = function () {
+            var url = urlhead+"/config/getfilename";
+            $.ajax({
+                    type: "get",
+                    url:url,
+                    dataType:'json',
+                    // processData: false,
+                    success:function(data){
+                        $(data).each(function (index) {
+                            var strhtml = "<li>"+data[index]+"</li>";
+                            $('#configlst').append(strhtml);
+                        });
+                        setEvent();
+                    }
+                }
+            );
+        };
+        var setEvent = function () {
+            $(".listl>li").on("click",function () {
+                getConfigInfo($(this).html());
+            });
+        };
+        var getConfigInfo = function (name) {
+            var url = urlhead+"/config/getfileinfo?key="+name;
+            $.ajax({
+                    type: "get",
+                    url:url,
+                    dataType:'json',
+                    // processData: false,
+                    success:function(data){
+                        $("#configinfo").empty();
+                        var strhtml = "";
+                        $(data).each(function (index) {
+                            var str = '<tr class="teamlst">'+
+                                            '<td>'+data[index].key+'</td>'+
+                                            '<td>'+
+                                                '<div class="input-group input-group-sm" style="width: 80%">'+
+                                                    '<input type="text" value="'+data[index].value+'" class="form-control Cinput" autocomplete="off">'+
+                                                '</div>'+
+                                            '</td>'+
+                                        '</tr>';
+                            strhtml +=  str;
+                            // var strhtml = "<li>"+data[index]+"</li>";
+                            // $('#configlst').append(strhtml);
+                        });
+                        var strhead = '<table id="configinfotab" class="table table-bordered table-condensed" style="color: white">'+
+                            '<caption style="text-align: left;font-size: 20px;margin-left: 20px"><span id = "configname" style="color: white">'+name+'</span><button  id = "savebtn" class="btn btncolor btnrm" style="position: relative;float: right;margin-bottom:10px;display: none">保存</button></caption>'+
+                        '<tr><th style="width: 350px">配置项</th><th style="">值</th></tr>'+strhtml+'</table>'+
+                        '<div id="pager" style="position: fixed;right: 50px"></div>';
+                        $("#configinfo").append(strhead);
+                        showPatrolList(1);
+                        var pagecount = Math.ceil(data.length / PATROLSIZE);
+                        workPage('#pager', pagecount, 1, showPatrolList);
+                        $("input[type='text']").change( function() {
+                            $('#savebtn').css("display","block");
+                        });
+                        $('#savebtn').on('click',function () {
+                            saveConfigInfo(name);
+                        })
+                    }
+                }
+            );
+        };
+        var saveConfigInfo = function (name) {
+            var infohead = "{";
+            var infoend = "}";
+            var info = "";
+            $('.teamlst').each(function (index) {
+                var ckey =  this.firstChild.textContent;
+                var cval = this.lastChild.firstChild.firstChild.value;
+                var cjson = ',"'+ckey+'":"'+cval+'"';
+                info += cjson;
+            });
+            info = infohead + info.replace(",","")+infoend;
+            console.log(info);
+            var jsinfo = $.parseJSON(info);
+            var infodata = {
+                configname:name,
+                configinfo:jsinfo
+            };
+            var url = urlhead+"/config/updatafile";
+            $.ajax({
+                    type: "get",
+                    url:url,
+                    dataType:'json',
+                    data:infodata,
+                    contentType:'application/x-www-form-urlencoded;charset=UTF-8',
+                    // processData: false,
+                    success:function(data){
+                        if(data){
+                            $('#savebtn').css("display","none");
+                        }else {
+                            alert("保存成失败");
+                        }
+                    }
+                }
+            );
+        }
+
+    </script>
+</body>
+</html>
