@@ -1,7 +1,7 @@
 package com.gis.config.server.algorithmImpl;
 
-import org.mozilla.intl.chardet.nsDetector;
-import org.mozilla.intl.chardet.nsICharsetDetectionObserver;
+//import org.mozilla.intl.chardet.nsDetector;
+//import org.mozilla.intl.chardet.nsICharsetDetectionObserver;
 
 import java.io.*;
 import java.net.URL;
@@ -63,7 +63,7 @@ public class FileImpl {
      * @throws java.io.IOException
      */
     public static String guestFileEncoding(File file) throws IOException {
-        return geestFileEncoding(file, new nsDetector());
+        return geestFileEncoding(file);
     }
 
     /**
@@ -77,7 +77,7 @@ public class FileImpl {
      * @throws java.io.IOException
      */
     public static String guestFileEncoding(File file, int languageHint) throws IOException {
-        return geestFileEncoding(file, new nsDetector(languageHint));
+        return geestFileEncoding(file);
     }
 
     /**
@@ -110,57 +110,57 @@ public class FileImpl {
      * 获取文件的编码
      *
      * @param file 需要处理文件的编码
-     * @param det  nsDetector
      * @return 返回文件编码
      * @throws java.io.FileNotFoundException
      * @throws java.io.IOException
      */
-    private static String geestFileEncoding(File file, nsDetector det) {
-        det.Init(new nsICharsetDetectionObserver() {
-            public void Notify(String charset) {
-                found = true;
-                encoding = charset;
-            }
-        });
-        byte[]  buf     = new byte[1024];
-        int     len;
-        boolean done    = false;
-        boolean isAscii = true;
-        try (
-                BufferedInputStream imp = new BufferedInputStream(new FileInputStream(file));
-        ) {
-            while ((len = imp.read(buf, 0, buf.length)) != -1) {
-                // Check if the stream is only ascii.
-                if (isAscii) {
-                    isAscii = det.isAscii(buf, len);
-                }
-
-                // DoIt if non-ascii and not done yet.
-                if (!isAscii && !done) {
-                    done = det.DoIt(buf, len, false);
-                }
-            }
-            det.DataEnd();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        if (isAscii) {
-            encoding = "ASCII";
-            found = true;
-        }
-
-        if (!found) {
-            String prob[] = det.getProbableCharsets();
-            if (prob.length > 0) {
-                // 在没有发现情况下，则取第一个可能的编码
-                encoding = prob[0];
-            } else {
-                return null;
-            }
-        }
-        return encoding;
+    private static String geestFileEncoding(File file) {//File file, nsDetector det
+//        det.Init(new nsICharsetDetectionObserver() {
+//            public void Notify(String charset) {
+//                found = true;
+//                encoding = charset;
+//            }
+//        });
+//        byte[]  buf     = new byte[1024];
+//        int     len;
+//        boolean done    = false;
+//        boolean isAscii = true;
+//        try (
+//                BufferedInputStream imp = new BufferedInputStream(new FileInputStream(file));
+//        ) {
+//            while ((len = imp.read(buf, 0, buf.length)) != -1) {
+//                // Check if the stream is only ascii.
+//                if (isAscii) {
+//                    isAscii = det.isAscii(buf, len);
+//                }
+//
+//                // DoIt if non-ascii and not done yet.
+//                if (!isAscii && !done) {
+//                    done = det.DoIt(buf, len, false);
+//                }
+//            }
+//            det.DataEnd();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        if (isAscii) {
+//            encoding = "ASCII";
+//            found = true;
+//        }
+//
+//        if (!found) {
+//            String prob[] = det.getProbableCharsets();
+//            if (prob.length > 0) {
+//                // 在没有发现情况下，则取第一个可能的编码
+//                encoding = prob[0];
+//            } else {
+//                return null;
+//            }
+//        }
+//        return encoding;
+        return null;
     }
 
 
