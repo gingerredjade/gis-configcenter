@@ -6,7 +6,7 @@
 	<groupId>com.gis</groupId>
 	<artifactId>gis-configcenter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>gis-configcenter</name>
 	<description>gis config center project for Spring Boot</description>
@@ -30,7 +30,8 @@
 		<module>gis-config-server-ui</module>
 		<module>gis-config-client</module>
 		<module>microservice-config-client-refresh</module>
-	</modules>
+        <module>gis-config-clientexec</module>
+    </modules>
 
 	<dependencies>
 		<dependency>

@@ -42,13 +42,15 @@ https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Configuratio
 - gis-config-server、gis-config-server-ui
 - gis-config-client
 - microservice-config-client-refresh(仅测试消息总线用)
+- gis-config-clientexec（独立可执行程序用于从服务器拉取配置信息修改wss配置文件）
 
 ## 1. 配置中心服务组件启动顺序
 项目源码使用模块编程，client端注册到了eureka服务端，所以启动项目应该也要启动eureka的服务端。
 然后再启动config服务端，最后启动config-client端，启动config-client要使用profile方法启动。
 1. gis-eureka-server
 2. gis-config-server、gis-config-server-ui
-3. gis-config-client
+3. gis-config-client（Spring Cloud Config Client）(暂不用)
+4. gis-config-clientexec
 
 ## 2. 端口
 1. eureka-server:8761
@@ -168,7 +170,7 @@ linux下可以通过nohup或者supervisor(推荐）进行启动，启动命令�
 使用rabbitmq消息中间件产品来增强刷新机制，解决多台配置客户端自动刷新配置问题。
 
 Spring Cloud Bus做配置更新步骤如下：
-- 在服务端出发POST请求给/actuator/bus-refresh
+- 在服务端触发POST请求给/actuator/bus-refresh
 - Config Server端接收到请求并发送给Spring Cloud Bus
 - Spring Cloud Bus接到消息并通知给其它客户端
 - 其它客户端接收到通知，请求Server端获取最新配置
