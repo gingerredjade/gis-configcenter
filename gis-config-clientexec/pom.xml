@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>gis-configcenter</artifactId>
+        <groupId>com.gis</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>gis-config-clientexec</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+        <!-- 读取配置文件的包 -->
+        <dependency>
+            <groupId>com.typesafe</groupId>
+            <artifactId>config</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>collections</artifactId>
+            <version>3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/commons-collections-3.1.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>logging</artifactId>
+            <version>1.1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/commons-logging-1.1.1.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>beanutils</artifactId>
+            <version>1.8.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/commons-beanutils-core-1.8.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/dom4j-1.6.1.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.sf</groupId>
+            <artifactId>ezmorph</artifactId>
+            <version>1.0.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/ezmorph-1.0.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.http</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/httpcore-4.3.2.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.http</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/httpclient-4.3.3.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson</groupId>
+            <artifactId>databind</artifactId>
+            <version>2.4.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/jackson-databind-2.4.3.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.1.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/jaxen-1.1.6.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.sf</groupId>
+            <artifactId>json</artifactId>
+            <version>2.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/json-lib-2.4-jdk15.jar</systemPath>
+        </dependency>
+
+
+
+    </dependencies>
+
+</project>
