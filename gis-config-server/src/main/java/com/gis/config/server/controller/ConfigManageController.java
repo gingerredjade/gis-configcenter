@@ -1,13 +1,14 @@
-package com.gis.config.server.controller.test;
+package com.gis.config.server.controller;
 
-import com.gis.config.server.controller.test.Exception.GisConfigException;
-import com.gis.config.server.controller.test.bean.CFFileInfo;
-import com.gis.config.server.controller.test.bean.CFFileKV;
+import com.gis.config.server.controller.Exception.GisConfigException;
+import com.gis.config.server.controller.bean.CFFileInfo;
+import com.gis.config.server.controller.bean.CFFileKV;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
@@ -110,6 +111,13 @@ public class ConfigManageController {
      */
     @RequestMapping(method = RequestMethod.GET,value = "/getfilename")
     public List  getConfigFileName(){
+
+        System.out.println("########################***************************%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("########################***************************%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("########################***************************%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("########################***************************%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
+
         File file = null;
         List list = new ArrayList();
         try {

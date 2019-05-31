@@ -1,4 +1,4 @@
-package com.gis.config.server.controller.test.Exception;
+package com.gis.config.server.controller.Exception;
 
 public class GisConfigException {
 

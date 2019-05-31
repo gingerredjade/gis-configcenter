@@ -1,4 +1,4 @@
-package com.gis.config.server.controller.test.bean;
+package com.gis.config.server.controller.bean;
 
 import java.util.Map;
 
