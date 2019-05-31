@@ -32,13 +32,20 @@
     <script src ="asserts/js/jquery-1.10.2.min.js" th:href="@{/webjars/js/jquery-1.10.2.min.js}" ></script>
     <script src ="asserts/js/bootstrap.min.js" th:href="@{/webjars/js/bootstrap.min.js}" ></script>
     <script src ="asserts/js/jquery.bootpag.js" th:href="@{/webjars/js/jquery.bootpag.js}" ></script>
+    <script src ="asserts/js/common/biz/jquery.bootpag.js" th:href="@{/webjars/js/jquery.bootpag.js}" ></script>
 
     <script>
         var PATROLSIZE = 10;
-        var urlhead = 'http://localhost:7070';
+        //var urlhead = 'http://192.168.56.211:7070';
+
+        var hostname = location.hostname;
+        var urlhead = "http://" + hostname + ":" + "7070";
+
         $(document).ready(function(){
             getConfigName();
         });
+
+
         var workPage = function (obj,total,page,callback) {
             $(obj).bootpag({
                 paginationClass: 'pagination',
@@ -50,7 +57,9 @@
             }).on("page", function(event, num){
                 callback(num);
             });
-        }
+        };
+
+
         var showPatrolList = function (page) {
             $('.teamlst').hide();
             var  startRow =(page - 1)* PATROLSIZE + 1;
@@ -59,12 +68,14 @@
                 $('.teamlst').eq(i-1).show();
             }
         };
+
+
         var getConfigName = function () {
             var url = urlhead+"/config/getfilename";
             $.ajax({
                     type: "get",
-                    url:url,
-                    dataType:'json',
+                    url: url,
+                    dataType: 'json',
                     // processData: false,
                     success:function(data){
                         $(data).each(function (index) {
@@ -76,11 +87,15 @@
                 }
             );
         };
+
+
         var setEvent = function () {
             $(".listl>li").on("click",function () {
                 getConfigInfo($(this).html());
             });
         };
+
+
         var getConfigInfo = function (name) {
             var url = urlhead+"/config/getfileinfo?key="+name;
             $.ajax({
@@ -122,6 +137,8 @@
                 }
             );
         };
+
+
         var saveConfigInfo = function (name) {
             var infohead = "{";
             var infoend = "}";
