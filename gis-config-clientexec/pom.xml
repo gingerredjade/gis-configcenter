@@ -14,8 +14,10 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
+            <artifactId>lang</artifactId>
+            <version>2.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/commons-lang-2.6.jar</systemPath>
         </dependency>
 
         <!-- 读取配置文件的包 -->

@@ -1,5 +1,6 @@
 package com.gis.client;
 
+import com.gis.utils.ReadProperties;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;
@@ -26,6 +27,21 @@ import java.util.Map;
 
 public class BuildConfigFile {
 
+	public static String CONFIGSTORE_FILE_NAME = "config-clientexec.properties";
+	private static String CONFIGCENTER_ADDRESS_KEY = "configcenter.address";
+	private static String CONFIGCENTER_ADDRESS = "";
+	private static String CONFIG_FILENAME_KEY="config.filename";
+	private static String CONFIG_FILENAME="";
+
+	static {
+		CONFIGCENTER_ADDRESS = ReadProperties.getKey(CONFIGCENTER_ADDRESS_KEY, CONFIGSTORE_FILE_NAME);
+		if( !CONFIGCENTER_ADDRESS.endsWith("/") ) {
+			CONFIGCENTER_ADDRESS = CONFIGCENTER_ADDRESS + File.separator;
+		}
+
+		CONFIG_FILENAME = ReadProperties.getKey(CONFIG_FILENAME_KEY, CONFIGSTORE_FILE_NAME);
+	}
+
 	private static Map<String, String> cfgmap = new HashMap<String, String>();
 
 	public static void main(String[] args) {
@@ -34,7 +50,8 @@ public class BuildConfigFile {
 	}
 	
 	private static void getConfigInfo() {
-		String tempurl = "http://192.168.56.211:7070/config/getfileinfo?key=mswss-146-dev.properties";
+		// tempurl形如http://cs.cc.com/config/getfileinfo?key=mswss-146-dev.properties"。
+		String tempurl = CONFIGCENTER_ADDRESS + "config/getfileinfo?key=" + CONFIG_FILENAME;
 		tempurl = System.getProperty("url");
 		System.out.println(tempurl);
 		HttpClient client = new DefaultHttpClient();
