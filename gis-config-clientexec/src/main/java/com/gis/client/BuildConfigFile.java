@@ -23,8 +23,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-
 public class BuildConfigFile {
 
 	public static String CONFIGSTORE_FILE_NAME = "config-clientexec.properties";

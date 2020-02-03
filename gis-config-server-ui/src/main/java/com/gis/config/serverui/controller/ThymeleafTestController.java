@@ -1,14 +1,17 @@
 package com.gis.config.serverui.controller;
 
 import com.alibaba.fastjson.JSON;
-import org.dom4j.*;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -19,7 +22,7 @@ import java.util.*;
  * ThymeleafTestController
  *
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>
+ * @author <a href="https://126.com">Hongyu Jiang</a>
  */
 @RestController
 @Controller

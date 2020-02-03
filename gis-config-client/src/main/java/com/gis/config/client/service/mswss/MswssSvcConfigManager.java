@@ -1,6 +1,5 @@
 package com.gis.config.client.service.mswss;
 
-import com.gis.config.client.common.ConfigManager;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -12,15 +11,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +24,7 @@ import java.util.Map;
  * MswssSvc ConfigManager.
  *
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>    @RefreshScope
+ * @author <a href="https://126.com">Hongyu Jiang</a>    @RefreshScope
  */
 
 @Component

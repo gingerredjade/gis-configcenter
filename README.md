@@ -145,7 +145,7 @@ linux下可以通过nohup或者supervisor(推荐）进行启动，启动命令�
 当Config Server启动后，如果配置发生了修改，微服务也应该实现配置的刷新。
 # 八、动态刷新Config Client配置
 ## 1. rabbitmq安装
-最方便的是运行rabbitmq镜像实例。参照WebGIS Blog。
+最方便的是运行rabbitmq镜像实例。
 ```
 0. docker pull rabbitmq:3.7.7-management
 1. 准备镜像:rabbitmq:3.7.7-management.tar

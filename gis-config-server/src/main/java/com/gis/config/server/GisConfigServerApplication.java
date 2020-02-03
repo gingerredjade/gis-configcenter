@@ -7,12 +7,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 /**
  * 应用启动入口类
@@ -23,7 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  * 	@EnableEurekaClient只对Eureka适用
  *
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>
+ * @author <a href="https://126.com">Hongyu Jiang</a>
  */
 @SpringBootApplication
 @EnableConfigServer

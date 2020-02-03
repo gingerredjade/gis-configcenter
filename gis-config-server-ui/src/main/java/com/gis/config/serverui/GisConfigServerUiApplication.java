@@ -10,7 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * 应用启动入口类
  *
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>
+ * @author <a href="https://126.com">Hongyu Jiang</a>
  */
 @SpringBootApplication
 @EnableDiscoveryClient

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
  * @Api 用在类上说明该类的作用
  *
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>
+ * @author <a href="https://126.com">Hongyu Jiang</a>
  */
 @Api(value = "UserController",description = "用户相关的API")
 @RestController

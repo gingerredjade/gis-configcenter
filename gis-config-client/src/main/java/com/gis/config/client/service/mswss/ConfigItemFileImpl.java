@@ -9,7 +9,7 @@ import java.util.Map;
  * ConfigItemFileImpl.配置变量与配置文件路径、配置属性的封装
  *
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>
+ * @author <a href="https://126.com">Hongyu Jiang</a>
  */
 public class ConfigItemFileImpl {
     // 先使用绝对路径测试

@@ -18,7 +18,7 @@ import java.util.Map.Entry;
  *  该类负责写入、更新配置本地配置文件的内容
  *
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>
+ * @author <a href="https://126.com">Hongyu Jiang</a>
  */
 @RestController
 @RequestMapping("/config")

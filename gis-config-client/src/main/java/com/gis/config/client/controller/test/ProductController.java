@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 	@ApiResponse 定义REST API的状态码与状态消息，可使用自定义状态码
  * 
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>
+ * @author <a href="https://126.com">Hongyu Jiang</a>
  */
 @Api(value = "ProductController",description = "产品测试相关的API")
 @RestController

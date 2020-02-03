@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 	@RefreshScope
  * 
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>
+ * @author <a href="https://126.com">Hongyu Jiang</a>
  */
 @Api(value = "HelloController",description = "Hello测试相关的API")
 @RestController

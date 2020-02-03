@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 		还能将每个REST API的返回值自动序列化为JSON格式。
  * 
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>
+ * @author <a href="https://126.com">Hongyu Jiang</a>
  */
 @RestController
 public class HelloController {

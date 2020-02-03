@@ -6,8 +6,8 @@ spring:
       server:
 #        git:
 #          uri: https://gitee.com/SpringCloud_Sell/config-repo
-#          username: jianghongyu
-#          password: jianghongyu
+#          username: test
+#          password: test
 #          searchPaths: config-repo
 #          basedir: /Users/admin/code/myProjects/java/imooc/SpringCloud_Sell/config/basedir
 #          force-pull: true

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * UserController对应的接口类
  *
  * @since 1.0.0 2018年08月18日
- * @author <a href="https://gisnci.com">Hongyu Jiang</a>
+ * @author <a href="https://126.com">Hongyu Jiang</a>
  */
 public interface UserContIntf {
 
